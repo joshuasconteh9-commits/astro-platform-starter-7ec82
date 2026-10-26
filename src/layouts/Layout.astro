@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+
+const { title = 'Astro Platform Starter' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A modern Astro starter app for product launches and marketing pages." />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#home">AstroLaunch</a>
+        <nav aria-label="Main navigation" class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+        <a class="button button-primary" href="#pricing">Get started</a>
+      </div>
+    </header>
+
+    <main id="home">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 AstroLaunch. Built for teams that move fast.</p>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

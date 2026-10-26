@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    title: 'Launch faster',
+    text: 'Ship polished product experiences with a lightweight frontend stack designed for speed and clarity.',
+  },
+  {
+    title: 'Built for teams',
+    text: 'Create landing pages, apps, and campaigns without fighting framework complexity or heavy tooling.',
+  },
+  {
+    title: 'Optimized by default',
+    text: 'Enjoy fast rendering, clean semantics, and a structure that is easy to extend as your product scales.',
+  },
+];
+
+const steps = [
+  'Define your goal and audience',
+  'Design a clearer user journey',
+  'Publish and iterate with confidence',
+];
+
+const plans = [
+  { name: 'Starter', price: '$29', desc: 'Perfect for launches and MVPs.' },
+  { name: 'Growth', price: '$79', desc: 'Best for active teams shipping weekly.' },
+  { name: 'Scale', price: '$149', desc: 'Advanced support for larger products.' },
+];
+---
+
+<Layout title="AstroLaunch — Build smarter">
+  <section class="hero container">
+    <div class="hero-copy">
+      <span class="eyebrow">New product launch</span>
+      <h1>Build a sharper digital experience.</h1>
+      <p>
+        Bring your next idea to life with a clean content-first platform that helps your team move from concept to launch faster.
+      </p>
+      <div class="cta-row">
+        <a class="button button-primary" href="#pricing">Start free</a>
+        <a class="button button-secondary" href="#features">See features</a>
+      </div>
+      <ul class="mini-stats" aria-label="Business metrics">
+        <li><strong>4x</strong><span>faster launches</span></li>
+        <li><strong>99.9%</strong><span>uptime focus</span></li>
+        <li><strong>24/7</strong><span>delivery mindset</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-panel" aria-label="Product preview">
+      <div class="window-bar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="dash-card main-card">
+        <p>Growth dashboard</p>
+        <h2>+128% engagement</h2>
+      </div>
+      <div class="dash-grid">
+        <div class="mini-card">
+          <span>Pipeline</span>
+          <strong>84%</strong>
+        </div>
+        <div class="mini-card accent">
+          <span>Revenue</span>
+          <strong>$42k</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="container section-block">
+    <div class="section-heading">
+      <span class="eyebrow">Why teams choose us</span>
+      <h2>Everything you need to launch confidently.</h2>
+    </div>
+
+    <div class="feature-grid">
+      {features.map((feature) => (
+        <article class="feature-card">
+          <div class="feature-icon">✦</div>
+          <h3>{feature.title}</h3>
+          <p>{feature.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="workflow" class="section-surface">
+    <div class="container workflow-wrap">
+      <div class="section-heading left">
+        <span class="eyebrow">Simple workflow</span>
+        <h2>Clear steps. Fast results.</h2>
+      </div>
+
+      <div class="workflow-list">
+        {steps.map((step, index) => (
+          <div class="workflow-step">
+            <span class="step-no">0{index + 1}</span>
+            <p>{step}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="container section-block pricing-block">
+    <div class="section-heading">
+      <span class="eyebrow">Pricing</span>
+      <h2>Plans that scale with your momentum.</h2>
+    </div>
+
+    <div class="pricing-grid">
+      {plans.map((plan) => (
+        <article class={`pricing-card ${plan.name === 'Growth' ? 'featured' : ''}`}>
+          <h3>{plan.name}</h3>
+          <div class="price-row">
+            <span class="price">{plan.price}</span>
+            <span>/mo</span>
+          </div>
+          <p>{plan.desc}</p>
+          <ul>
+            <li>Unlimited projects</li>
+            <li>Priority support</li>
+            <li>Analytics included</li>
+          </ul>
+          <a class="button button-primary" href="#home">Choose plan</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
